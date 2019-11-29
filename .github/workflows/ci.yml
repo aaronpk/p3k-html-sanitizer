@@ -1,0 +1,10 @@
+name: CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install composer dependencies
+      run: composer install
+    - name: Run PHPUnit
+      run: php7.3 vendor/bin/phpunit
