@@ -8,6 +8,7 @@ class HTML {
   public static function sanitize($html, $opts=[]) {
     $opts['allowImg'] = $opts['allowImg'] ?? true;
     $opts['allowMf2'] = $opts['allowMf2'] ?? true;
+    $opts['allowTables'] = $opts['allowTables'] ?? false;
     $opts['baseURL'] = $opts['baseURL'] ?? false;
 
     $allowed = [
@@ -40,6 +41,16 @@ class HTML {
     ];
     if($opts['allowImg'])
       $allowed[] = 'img';
+
+    if($opts['allowTables']) {
+      $allowed[] = 'table';
+      $allowed[] = 'thead';
+      $allowed[] = 'tbody';
+      $allowed[] = 'tfoot';
+      $allowed[] = 'tr';
+      $allowed[] = 'th';
+      $allowed[] = 'td';
+    }
 
     $config = HTMLPurifier_Config::createDefault();
     $config->set('Cache.DefinitionImpl', null);

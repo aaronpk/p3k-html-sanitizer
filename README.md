@@ -33,39 +33,41 @@ $output = p3k\HTML::sanitize($input, $options);
 * `baseURL` - (default `false`)
 * `allowImg` - (`true`/`false`, default `true`) - whether to allow `img` tags in the output
 * `allowMf2` - (`true`/`false`, default `true`) - whether to allow Microformats 2 classes on elements
+* `allowTables` - (`true`/`false`, default `false`) - whether to allow table elements (`table`, `thead`, `tbody`, `tr`, `td`)
 
 
 ## Allowed Tags
 
 The following HTML tags are the only tags allowed in the input. Everything else will be removed.
 
-* a
-* abbr
-* b
-* br
-* code
-* del
-* em
-* i
-* q
-* strike
-* strong
-* time
-* blockquote
-* pre
-* p
-* h1
-* h2
-* h3
-* h4
-* h5
-* h6
-* ul
-* li
-* ol
-* span
-* hr
-* img - only if `$options['allowImg']` is `true`
+* `a`
+* `abbr`
+* `b`
+* `br`
+* `code`
+* `del`
+* `em`
+* `i`
+* `q`
+* `strike`
+* `strong`
+* `time`
+* `blockquote`
+* `pre`
+* `p`
+* `h1`
+* `h2`
+* `h3`
+* `h4`
+* `h5`
+* `h6`
+* `ul`
+* `li`
+* `ol`
+* `span`
+* `hr`
+* `img` - only if `$options['allowImg']` is `true`
+* `table`, `thead`, `tbody`, `tfoot`, `tr`, `th`, `td` - only if `$options['allowTables']` is `true`
 
 All attributes other than those below will be removed.
 
