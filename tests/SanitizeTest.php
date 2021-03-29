@@ -96,21 +96,21 @@ class SanitizeTest extends PHPUnit\Framework\TestCase {
   public function testRemovesTablesByDefault() {
     $html = $this->sanitize('tables');
 
-    $this->assertStringNotContainsString('<table>');
-    $this->assertStringNotContainsString('<tr>');
-    $this->assertStringNotContainsString('<td>');
+    $this->assertStringNotContainsString('<table>', $html);
+    $this->assertStringNotContainsString('<tr>', $html);
+    $this->assertStringNotContainsString('<td>', $html);
   }
 
   public function testAllowsTables() {
     $html = $this->sanitize('tables', ['allowTables' => true]);
 
-    $this->assertStringContainsString('<table>');
-    $this->assertStringContainsString('<thead>');
-    $this->assertStringContainsString('<tbody>');
-    $this->assertStringContainsString('<tfoot>');
-    $this->assertStringContainsString('<tr>');
-    $this->assertStringContainsString('<th>');
-    $this->assertStringContainsString('<td>');
+    $this->assertStringContainsString('<table>', $html);
+    $this->assertStringContainsString('<thead>', $html);
+    $this->assertStringContainsString('<tbody>', $html);
+    $this->assertStringContainsString('<tfoot>', $html);
+    $this->assertStringContainsString('<tr>', $html);
+    $this->assertStringContainsString('<th>', $html);
+    $this->assertStringContainsString('<td>', $html);
   }
 
 }
