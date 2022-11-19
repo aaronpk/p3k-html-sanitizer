@@ -36,6 +36,8 @@ class HTMLPurifier_AttrDef_HTML_Microformats2 extends \HTMLPurifier_AttrDef_HTML
             if(preg_match('/^([hpue]|dt)-[a-z\-]+$/', $token)) {
                 $ret[] = $token;
             }
+            if($token == 'xray-emoji')
+                $ret[] = $token;
         }
         return $ret;
     }

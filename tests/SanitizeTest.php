@@ -75,6 +75,12 @@ class SanitizeTest extends PHPUnit\Framework\TestCase {
     $this->assertStringContainsString('<h3>Utility Class</h3>', $html);
   }
 
+  public function testAllowXRayEmoji() {
+    $html = $this->sanitize('entry-with-xray-emoji');
+    $this->assertStringContainsString('<h2 class="p-name">Hello World</h2>', $html);
+    $this->assertStringContainsString('class="xray-emoji"', $html);
+  }
+
   public function testEscapingHTMLTagsInHTML() {
     $html = $this->sanitize('html-escaping-in-html');
 
